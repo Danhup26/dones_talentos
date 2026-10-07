@@ -200,7 +200,7 @@ var Control = (function () {
   function vRetos() {
     var c = S.cfg, h = '<section class="card"><h3>' + icon('list') + 'Plan de rondas</h3><p class="muted">Cada ronda da una pieza por equipo.</p>';
     for (var r = 0; r < c.rounds; r++) {
-      h += '<div class="plan"><b>Ronda ' + (r + 1) + '</b>' + field('Nombre de la ronda', 'data-c="ptitle" data-v="' + r + '"', c.plan[r].title) +
+      h += '<div class="plan"><b>Ronda ' + (r + 1) + '</b>' + field('Don de la ronda', 'data-c="ptitle" data-v="' + r + '"', c.plan[r].title) + field('Talento destacado', 'data-c="ptalent" data-v="' + r + '"', c.plan[r].talent || '') + field('Base bíblica', 'data-c="psrc" data-v="' + r + '"', c.plan[r].src || '') +
         '<label class="sel"><span>Versículo de la ronda</span><select data-c="pverse" data-v="' + r + '">' + Object.keys(c.verses).map(function (k) { return '<option value="' + k + '"' + (k === c.plan[r].verse ? ' selected' : '') + '>' + esc(c.verses[k].ref) + '</option>'; }).join('') + '</select></label>';
       for (var t = 0; t < 3; t++) {
         var opts = c.challenges.map(function (x) { return '<option value="' + x.id + '"' + (x.id === c.plan[r].picks[t] ? ' selected' : '') + '>' + esc(x.title) + '</option>'; }).join('');
@@ -252,7 +252,7 @@ var Control = (function () {
     });
     h += '</section><section class="card"><h3>' + icon('moon') + 'Pausa de silencio</h3>' + field('Pregunta', 'data-c="pausaq"', c.pause.question, 'area') +
       field('Segundos', 'data-c="pausas" min="10" max="180"', c.pause.secs, 'number') + '</section><section class="card"><h3>' + icon('film') + 'Créditos</h3>';
-    ['line1', 'line2', 'line3', 'line4', 'tagline'].forEach(function (k, i) { h += field('Línea ' + (i + 1), 'data-c="cred" data-v="' + k + '"', c.credits[k]); });
+    ['line1', 'line2', 'line3', 'line4', 'tagline', 'bible'].forEach(function (k, i) { h += field('Línea ' + (i + 1), 'data-c="cred" data-v="' + k + '"', c.credits[k]); });
     h += '</section><section class="card"><h3>' + icon('volume') + 'Sonidos personalizados</h3><p class="muted">Opcional: pega la URL de un archivo de audio. Vacío = sonido incluido.</p>';
     Object.keys(c.sounds).forEach(function (k) { h += field(k, 'data-c="snd" data-v="' + k + '" placeholder="https://…"', c.sounds[k], 'url'); });
     h += '</section><section class="card"><h3>' + icon('shield') + 'Copia de seguridad</h3><p class="muted">Copia este texto para guardar tu configuración, o pega uno para restaurarla.</p>' +
@@ -383,6 +383,8 @@ var Control = (function () {
         case 'pick': cfg.plan[s.round].picks[+v] = val; if (s.scene === 'timer' || s.scene === 'brief') T.readyTimer(s); break;
         case 'ppick': var rt = v.split('-'); cfg.plan[+rt[0]].picks[+rt[1]] = val; break;
         case 'ptitle': cfg.plan[+v].title = val; break;
+        case 'ptalent': cfg.plan[+v].talent = val; break;
+        case 'psrc': cfg.plan[+v].src = val; break;
         case 'pverse': cfg.plan[+v].verse = val; break;
         case 'wlabel': cfg.wheel.slices[+v].label = val || 'Parte'; break;
         case 'wact': cfg.wheel.slices[+v].action = val; break;

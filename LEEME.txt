@@ -69,20 +69,25 @@ EDITAR DESDE EL CELULAR
 - Control → Ajustes: rondas, puntos, sonido, modo accesible, textos, versículos, créditos, copia de seguridad.
 Los cambios se ven al instante en la pantalla.
 
-BASE BÍBLICA DEL JUEGO
-- DONES: los reparte el Espíritu como él quiere, para provecho común (1 Co 12:4-11; Ro 12:6-8; Ef 4:11-12; 1 P 4:10).
-- TALENTOS: el Señor los confía a cada uno conforme a su capacidad, para administrarlos y multiplicarlos (Mt 25:14-30).
-- Las piezas no se "ganan": cada equipo las recibe y cada misión las pone en acción. Nadie compite: todas hacen falta (1 Co 12:21).
+BASE BÍBLICA DEL JUEGO (Reina-Valera 1960)
+- DONES: el Espíritu de Jehová que reposa sobre el Mesías (Isaías 11:2-3) y los dones de 1 Corintios 12:8-10.
+  Se usan los que se pueden vivir en una actividad sencilla y reverente. Los demás (sanidades, milagros, lenguas,
+  interpretación, discernimiento de espíritus) no se "actúan" en un juego y se dejan fuera de las actividades.
+- TALENTOS (Mateo 25:14-30): lo que cada uno puede hacer y pone al servicio. En cada ronda el DON es el tema y el TALENTO la forma:
+  Equipo 1 = DECIR (una frase) · Equipo 2 = HACER (gesto o escena) · Equipo 3 = DIBUJAR (cartulina). Siempre igual: nadie se confunde.
+- Las piezas no se "ganan": cada equipo las recibe y cada misión las pone en acción. Nadie compite: todas hacen falta.
+- 6 rondas, de menor a mayor: 1 Temor de Jehová · 2 Fe · 3 Conocimiento · 4 Poder · 5 Consejo · 6 Sabiduría.
+  Cada ronda muestra su don, un talento destacado, la base bíblica y un versículo. Todo se edita en Control → Actividades.
 - PARTICIPACIÓN DE TODA LA IGLESIA (nadie compite):
-  · RULETA DEL CUERPO (Ojo, Mano, Oído, Boca, Pie, Corazón): sale sola después de las rondas 2 y 4. El presentador la gira
-    con el botón grande; todos hacen la acción a la vez, sentados (mirar y afirmar, bendecir, escuchar, animar, saludar, orar).
-    La ruleta no reparte dones: solo elige qué hace el cuerpo en ese momento. Acciones y versículos se editan en Ajustes.
-  · PAUSA DE SILENCIO: 60 segundos con una pregunta, antes del gran final (se cambia en Ajustes).
+  · RULETA DEL CUERPO (Ojo, Mano, Oído, Boca, Pie, Corazón): sale una vez, después de la ronda 3. El presentador la gira
+    con el botón grande; todos hacen la acción a la vez, sentados. La ruleta no reparte dones: solo elige qué hace el cuerpo.
+  · PAUSA DE SILENCIO: 45 segundos con una pregunta, antes del gran final.
   · MI PIEZA: al final, cada persona escribe en una ficha de papel "lo que Dios me dio" (una palabra o frase) y, si quiere,
-    la pega en un tablero con la silueta del cuerpo. Prepara fichas, lapiceros y cinta antes del culto; 2 o 3 voluntarios pueden compartir.
-- Rondas: 1 Todo viene de Dios · 2 Diversos dones · 3 Talentos: administrar · 4 Talentos: no enterrarlos · 5 Dones para servir · 6 Con amor, un solo cuerpo.
-- Cada ronda muestra su versículo (Reina-Valera 1960). Se cambia en Control → Actividades → Plan de rondas.
-- Si en el celular ya había contenido guardado de la versión anterior, se reemplaza automáticamente por este.
+    la pega en un tablero con la silueta del cuerpo. Prepara fichas, lapiceros y cinta; 2 o 3 voluntarios pueden compartir.
+- DURACIÓN (estimada, sin medir; ensáyalo con cronómetro): unos 18 a 19 minutos. Si se pasa de 20, baja a 5 rondas.
+- Los textos bíblicos están comprobados en la RVR1960; los que terminan en "…" son citas parciales del versículo.
+  Créditos: Reina-Valera 1960 © Sociedades Bíblicas en América Latina.
+- Si en el celular o la pantalla había contenido guardado de una versión anterior, se reemplaza automáticamente por este.
 
 ANTES DEL CULTO
 Usa DEMOSTRACIÓN en la portada para ver el recorrido completo (unos 5 minutos).

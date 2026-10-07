@@ -118,7 +118,8 @@ var Screen = (function () {
         discBadge(c) + '<h2 class="rtitle">' + esc(c.title) + '</h2><p class="rtext">' + esc(c.text) + '</p>' +
         '<footer>' + icon('timer') + (+c.secs || 30) + ' s' + (c.disc === 'lsc' ? '<span class="lsc">' + icon('hand') + 'Sin voz · LSC</span>' : '') + '</footer></article>';
     }).join('');
-    return '<div class="scene brief"><div class="rhead rise"><span class="rlabel">RONDA ' + pad2(S.round + 1) + '</span><span class="rname">' + esc(info.title) + '</span></div>' +
+    return '<div class="scene brief"><div class="rhead rise"><span class="rlabel">RONDA ' + pad2(S.round + 1) + '</span><span class="rname">' + esc(info.title) + '</span>' +
+      (info.talent || info.src ? '<span class="rsub">' + (info.talent ? 'Talento: <b>' + esc(info.talent) + '</b>' : '') + (info.talent && info.src ? ' · ' : '') + esc(info.src) + '</span>' : '') + '</div>' +
       '<div class="rcols">' + cols + '</div>' + (info.verse ? '<p class="note rise d5">“' + esc(info.verse.text) + '” <b>' + esc(info.verse.ref) + '</b></p>' : '<p class="note rise d5">Los tres equipos, al mismo tiempo.</p>') + '</div>';
   }
 
@@ -250,7 +251,7 @@ var Screen = (function () {
     return '<div class="scene finale f3"><div class="rise">' + logos() + '</div>' +
       '<p class="cr1 rise d2">' + esc(c.credits.line1) + '</p><p class="cr2 rise d2">' + esc(c.credits.line2) + '</p>' +
       '<p class="cr3 rise d3">' + esc(c.credits.line3) + '</p><p class="cr1 rise d3">' + esc(c.credits.line4) + '</p>' +
-      '<p class="cr4 rise d4">' + esc(c.credits.tagline) + '</p><p class="cr5 rise d5">' + esc(c.church) + '</p></div>';
+      '<p class="cr4 rise d4">' + esc(c.credits.tagline) + '</p><p class="cr5 rise d5">' + esc(c.church) + '</p>' + (c.credits.bible ? '<p class="cr6 rise d5">' + esc(c.credits.bible) + '</p>' : '') + '</div>';
   }
 
   function runFinale() {

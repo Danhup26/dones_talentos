@@ -139,7 +139,7 @@ function roundInfo(state, r) {
   var cfg = state.cfg, p = cfg.plan[r] || cfg.plan[0];
   var items = [0, 1, 2].map(function (t) { return challengeById(cfg, p.picks[t]); });
   var secs = Math.max.apply(null, items.map(function (c) { return +c.secs || 30; }));
-  return { title: p.title, items: items, secs: secs, verse: cfg.verses[p.verse] || null };
+  return { title: p.title, talent: p.talent || '', src: p.src || '', items: items, secs: secs, verse: cfg.verses[p.verse] || null };
 }
 function challengeNumber(state, r, t) { return r * 3 + t + 1; }
 /* Rompecabezas: filas = rondas × piezas por misión (máx. 8 filas = 24 piezas). Una misión (ronda-equipo) entrega 1 o 2 piezas. */
@@ -152,7 +152,7 @@ function newPlanRound(cfg, idx) {
   var ch = cfg.challenges, n = ch.length, o = (idx * 3) % n;
   return { title: 'Ronda ' + (idx + 1), picks: [ch[o % n].id, ch[(o + 1) % n].id, ch[(o + 2) % n].id], verse: 'main' };
 }
-function wheelAfterFor(rounds) { return rounds <= 2 ? [0] : rounds <= 4 ? [1] : rounds <= 6 ? [1, 3] : [2, 5]; }
+function wheelAfterFor(rounds) { return rounds <= 2 ? [0] : rounds <= 4 ? [1] : rounds <= 6 ? [2] : [3]; }
 function timerLeft(timer) {
   if (!timer) return 0;
   if (timer.running) return Math.max(0, timer.endsAt - nowMs());

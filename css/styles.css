@@ -411,3 +411,7 @@ body.mode-screen:not(.nocursor):not(.mode-demo) #scrGear { opacity: .7; pointer-
 .pm-choices button.armed { background: rgba(255,120,100,.25); }
 .pair-btns button:last-child { border-color: rgba(255,138,122,.4); }
 .join-err.ok { color: var(--gold-soft) !important; }
+
+.rsub { font-size: calc(var(--u) * 1.15); color: var(--mute); letter-spacing: .02em; margin-top: calc(var(--u) * .3); }
+.rsub b { color: var(--gold-soft); font-weight: 700; }
+.cr6 { margin-top: calc(var(--u) * 1.2); font-size: calc(var(--u) * .85); color: var(--mute); opacity: .8; }

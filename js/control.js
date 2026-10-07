@@ -286,6 +286,22 @@ var Control = (function () {
     return '<section class="card"><h3>' + icon('restart') + 'Culto nuevo</h3><p class="muted">Ahora: ronda ' + (S.round + 1) + '/' + S.cfg.rounds + ' · ' + piecesDone(S) + '/' + totalPieces(S) + ' piezas. Para empezar desde la ronda 1 con 0 piezas y la pantalla en el título:</p>' +
       btn('newrun', armedKey === 'newrun' ? '¿Seguro? Toca otra vez' : 'Empezar desde cero', 'restart', armedKey === 'newrun' ? 'danger' : 'go') + '</section>';
   }
+  /* Conexión con la pantalla (solo en modo código/QR): desvincular conservando o borrando el progreso. */
+  function linkCard() {
+    if (!Room.code()) return '';
+    return '<section class="card"><h3>' + icon('tv') + 'Conexión con la pantalla</h3><p class="muted">Sala ···' + esc(Room.suffix()) + ' · ' + (Room.isLinked() ? 'pantalla conectada ✓' : 'esperando la pantalla…') + '</p>' +
+      '<p class="muted">Para cambiar de celular: desvincula este y escanea el QR desde el otro (conservando el progreso).</p>' +
+      btn('unlink_keep', armedKey === 'unlink_keep' ? '¿Seguro? Toca otra vez' : 'Desvincular y mantener progreso', 'tv', armedKey === 'unlink_keep' ? 'danger' : 'go') +
+      btn('unlink_wipe', armedKey === 'unlink_wipe' ? '¿Seguro? Se perderá el progreso. Toca otra vez' : 'Desvincular y borrar progreso', 'trash', armedKey === 'unlink_wipe' ? 'danger' : 'danger-soft') + '</section>';
+  }
+  function leaveRoom(wipe) {
+    if (wipe) { var cfg = S.cfg, rev = S.rev; S = freshState(cfg); S.hist = []; S.rev = rev; commit(null, { quiet: true }); }
+    Room.bye().then(function () {
+      Room.leave();
+      App.rejoin(wipe ? 'Te desvinculaste y se borró el progreso. Para conectar una pantalla, escanea su QR o pega su código.'
+                      : 'Te desvinculaste. El progreso se conservó en este celular. Para conectar una pantalla, escanea su QR o pega su código.');
+    });
+  }
   function lockWrap(body) {
     if (!locked()) return body;
     return '<section class="card lockb"><h3>' + icon('shield') + 'Edición bloqueada</h3><p class="muted">El culto está en marcha: para no alterar la secuencia, los cambios están bloqueados.</p>' +
@@ -294,7 +310,7 @@ var Control = (function () {
 
   function render() {
     if (!root) return;
-    var y = window.scrollY, body = tab === 'live' ? vLive() : (tab === 'ajustes' ? newRunCard() : '') + lockWrap(tab === 'equipos' ? vEquipos() : tab === 'retos' ? vRetos() : vAjustes());
+    var y = window.scrollY, body = tab === 'live' ? vLive() : (tab === 'ajustes' ? newRunCard() + linkCard() : '') + lockWrap(tab === 'equipos' ? vEquipos() : tab === 'retos' ? vRetos() : vAjustes());
     var openD = $$('details[open]', root).map(function (d) { return $$('details', root).indexOf(d); });
     root.innerHTML = head() + '<main class="cbody">' + body + '</main>' +
       (tab === 'live' ? '<button class="sos" data-a="safe">' + icon('shield') + 'VOLVER A ESTADO SEGURO</button>' : '') +
@@ -330,6 +346,8 @@ var Control = (function () {
         break;
       case 'editc': openId = v; tab = 'retos'; render(); var tgt = document.getElementById('ch-' + v); if (tgt) tgt.scrollIntoView({ block: 'start' }); break;
       case 'newrun': arm('newrun', function () { var cfg = S.cfg, rev = S.rev; S = freshState(cfg); S.hist = []; S.rev = rev; commit(); }); break;
+      case 'unlink_keep': arm('unlink_keep', function () { leaveRoom(false); }); break;
+      case 'unlink_wipe': arm('unlink_wipe', function () { leaveRoom(true); }); break;
       case 'unlock': arm('unlock', function () { commit(function (s) { s.editOpen = true; }); }); break;
       case 'drawerclose': drawer = false; render(); break;
       case 'spin': commit(function (s) { if (s.scene !== 'wheel') T.go(s, 'wheel', T.wheelReset(s)); T.spin(s); }); break;
@@ -403,7 +421,7 @@ var Control = (function () {
     Sync.onState(function (st, src) {
       if (src === 'hello') { Sync.publish(S); return; }
       if (src === 'server' && (!st || st.rev < S.rev)) { Sync.publish(S); return; }  // el celular tiene lo más reciente
-      if (st && st.cfg && st.rev > S.rev) { S = st; if (!S.hist) S.hist = []; var sg = S.scene + '|' + S.round; if (sg !== lastSig) { drawer = false; lastSig = sg; } saveCfg(); render(); }
+      if (st && st.cfg && st.rev > S.rev) { S = st; if (!S.hist) S.hist = []; var sg = S.scene + '|' + S.round; if (sg !== lastSig) { drawer = false; lastSig = sg; } saveCfg(); try { localStorage.setItem(STORE_STATE, JSON.stringify(S)); } catch (e) {} render(); }
     });
     Sync.onStatus(function (st) {
       if (st === 'pin' && !pinAsked) { pinAsked = true; setTimeout(function () { var p = prompt('PIN del presentador (aparece en la ventana del servidor):'); pinAsked = false; if (p) { Sync.setPin(p); Sync.publish(S); } }, 50); }
@@ -487,12 +505,16 @@ var App = (function () {
       if (cloudMode()) $('#landNote').innerHTML = 'Conexión por código: en el computador del proyector elige <b>PANTALLA</b> (mostrará un código y un QR). En el celular del presentador escanea el QR con la cámara, o elige <b>CONTROL</b> y pega el código.';
     });
   }
-  function showJoin(msg) { show('landing'); $('#joinBox').hidden = false; $('#joinErr').textContent = msg || ''; }
+  function showJoin(msg) {
+    var m = msg || ''; try { if (!m) m = sessionStorage.getItem('ponlo.joinmsg') || ''; sessionStorage.removeItem('ponlo.joinmsg'); } catch (e) {}
+    show('landing'); $('#joinBox').hidden = false; $('#joinErr').textContent = m; $('#joinErr').classList.toggle('ok', !!m && m.indexOf('válido') < 0);
+  }
   function startRoom(role) {
     if (!cloudMode()) return;
     var c = role === 'screen' ? Room.ensureCode() : Room.savedCode();
     if (!c) return;
     Room.setStateGetter(role === 'screen' ? Screen.state : Control.state);
+    if (role === 'control') Room.onBye(function () { App.rejoin('La pantalla se desvinculó. Para conectar una pantalla, escanea su QR o pega su código.'); });
     if (role === 'screen') Pairing.init();
     Room.start(role, c).then(function () { if (role === 'screen' && !Room.wasPaired()) Pairing.show(true); });
   }
@@ -546,6 +568,8 @@ var App = (function () {
       var saved = null; try { saved = localStorage.getItem(ROLE); } catch (e) {}
       if (saved === 'screen' || saved === 'control') enter(saved); else landing();
     },
+    /* Vuelve a pedir el código (con un mensaje) recargando la página para empezar limpio. */
+    rejoin: function (msg) { try { sessionStorage.setItem('ponlo.joinmsg', msg || ''); localStorage.setItem(ROLE, 'control'); } catch (e) {} location.reload(); },
     chooseRole: function () { try { localStorage.removeItem(ROLE); } catch (e) {} location.reload(); },
     demo: function () {
       document.body.classList.add('mode-demo');

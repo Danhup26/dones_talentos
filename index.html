@@ -41,8 +41,9 @@
   <div id="fx" aria-hidden="true"></div>
   <span id="scrStatus"></span>
   <button id="demoExit" hidden onclick="App.chooseRole()">Salir de la demostración</button>
+  <button id="scrGear" type="button" hidden aria-label="Conexión con el celular">⚙</button>
   <div id="pair" hidden>
-    <div class="pair-card">
+    <div class="pair-card" id="pairLink">
       <div class="pair-qr" id="pairQr"></div>
       <div class="pair-info">
         <p class="kicker">Conecta el celular del presentador</p>
@@ -51,8 +52,26 @@
           <li>Con la cámara del celular, <b>escanea el QR</b>.</li>
           <li>O abre <b id="pairUrl"></b>, elige <b>CONTROL</b> y pega el código.</li>
         </ol>
-        <div class="pair-btns"><button id="pairHide" type="button">Ocultar</button><button id="pairNew" type="button">Nuevo código</button></div>
-        <p class="pair-note">Esta ventana se cierra sola al conectarse. Tecla P: mostrarla otra vez.</p>
+        <div class="pair-btns"><button id="pairHide" type="button">Ocultar</button><button id="pairNew" type="button">Nuevo código</button><button id="pairUnlink" type="button">Desvincular…</button></div>
+        <p class="pair-note">Esta ventana se cierra sola al conectarse. Tecla P o el engranaje: mostrarla otra vez.</p>
+      </div>
+    </div>
+    <div class="pair-manage" id="pairManage" hidden>
+      <p class="kicker">Conexión con el celular</p>
+      <p class="pm-status" id="pmStatus"></p>
+      <div class="pair-btns pm-btns">
+        <button id="pmClose" type="button">Cerrar</button>
+        <button id="pmChange" type="button">Cambiar de celular<small>Genera un código nuevo. El progreso se conserva.</small></button>
+        <button id="pmUnlink" type="button">Desvincular esta pantalla…</button>
+      </div>
+    </div>
+    <div class="pair-manage" id="pairConfirm" hidden>
+      <p class="kicker">Desvincular esta pantalla</p>
+      <p class="pm-status">¿Qué hacemos con el progreso del culto?</p>
+      <div class="pm-choices">
+        <button id="pmKeep" type="button">Desvincular y <b>mantener</b> el progreso<small>Podrás conectar otro celular o pantalla y seguir donde ibas.</small></button>
+        <button id="pmWipe" type="button" class="danger">Desvincular y <b>borrar</b> el progreso<small>Se perderá la ronda y las piezas. Los nombres y actividades se conservan.</small></button>
+        <button id="pmCancel" type="button">Cancelar</button>
       </div>
     </div>
   </div>

@@ -10,6 +10,17 @@ OPCIÓN 1 (con internet): CONEXIÓN POR CÓDIGO O QR — sin instalar nada
 3. La pantalla dice "Presentador conectado ✓" y oculta el QR para que nadie del público lo escanee.
    Tecla P en la pantalla: volver a mostrarlo. "Nuevo código": invalida el celular anterior.
 - Si se recarga la pantalla o el celular, se reconectan solos (no vuelven a pedir el código).
+CAMBIAR DE CELULAR, DESVINCULAR Y PROGRESO (el progreso nunca se pierde sin que lo pidas)
+- Desde la PANTALLA (tecla P, o el engranaje que aparece al mover el mouse):
+  · "Cambiar de celular": genera un código nuevo, avisa al celular anterior (que se desvincula) y conserva el progreso.
+    El celular nuevo escanea el QR y continúa donde iba el culto, aunque sea un celular vacío.
+  · "Desvincular esta pantalla…": pregunta qué hacer con el progreso:
+    - "Desvincular y mantener el progreso": la pantalla olvida la sala; el avance sigue en el celular.
+    - "Desvincular y borrar el progreso": también deja el celular conectado en ronda 1 y 0 piezas
+      (nombres, actividades y textos se conservan). Pide confirmar dos veces.
+- Desde el CELULAR (Ajustes → "Conexión con la pantalla"): "Desvincular y mantener progreso" o "Desvincular y borrar progreso".
+  Para conectar otra pantalla, escanea su QR o pega su código.
+- Si el celular o la pantalla se desconectan, el otro lo muestra ("Esperando…"), pero la ventana del QR no se abre sola.
 - Si el internet se cae un momento, la pantalla sigue en la escena en la que estaba y el cronómetro sigue corriendo.
 - La conexión usa Supabase (proyecto "dones-y-talentos-sala"); no guarda datos, solo reenvía mensajes firmados.
   Los proyectos gratuitos de Supabase se pausan si pasan varios días sin uso: entra al panel unos días antes del culto

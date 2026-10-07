@@ -397,3 +397,17 @@ fieldset.lockfs { border: 0; min-width: 0; display: flex; flex-direction: column
 .pair-btns button { padding: .6em 1.2em; border-radius: 99px; border: 1px solid var(--line); background: rgba(255,255,255,.06); font-size: calc(var(--u) * 1.1); font-weight: 700; }
 .pair-note { margin-top: calc(var(--u) * 1.2); font-size: calc(var(--u) * 1); color: var(--mute); }
 @media (max-aspect-ratio: 1/1) { .pair-card { flex-direction: column; } .pair-info { text-align: center; } .pair-qr { width: 60vw; height: 60vw; } }
+
+/* ---------- Gestión de la conexión en la pantalla ---------- */
+#scrGear { position: absolute; right: 1.2vw; bottom: 1.4vh; z-index: 25; width: calc(var(--u) * 3); height: calc(var(--u) * 3); border-radius: 50%; border: 1px solid var(--line); background: rgba(5,14,43,.7); color: var(--mute); font-size: calc(var(--u) * 1.5); opacity: 0; pointer-events: none; transition: opacity .4s; }
+body.mode-screen:not(.nocursor):not(.mode-demo) #scrGear { opacity: .7; pointer-events: auto; }
+.pair-manage { text-align: center; max-width: calc(var(--u) * 52); padding: 0 4vw; }
+.pm-status { font-family: var(--display); font-weight: 700; font-size: calc(var(--u) * 2.4); margin: calc(var(--u) * .6) 0 calc(var(--u) * 2); text-wrap: balance; }
+.pm-btns { justify-content: center; flex-wrap: wrap; }
+.pm-btns button, .pm-choices button { display: flex; flex-direction: column; gap: .3em; padding: .8em 1.4em; border-radius: calc(var(--u) * 1.2); border: 1px solid var(--line); background: rgba(255,255,255,.06); font-size: calc(var(--u) * 1.3); font-weight: 700; }
+.pm-btns button small, .pm-choices button small { font-size: .78em; font-weight: 500; color: var(--mute); }
+.pm-choices { display: flex; flex-direction: column; gap: calc(var(--u) * 1); align-items: stretch; }
+.pm-choices button.danger, .pm-btns button.danger { border-color: #FF8A7A; color: #FFD0C8; }
+.pm-choices button.armed { background: rgba(255,120,100,.25); }
+.pair-btns button:last-child { border-color: rgba(255,138,122,.4); }
+.join-err.ok { color: var(--gold-soft) !important; }

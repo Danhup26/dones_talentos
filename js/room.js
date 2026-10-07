@@ -9,7 +9,7 @@
 var Room = (function () {
   var ALPHA = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', LS_CODE = 'ponlo.room', LS_PAIRED = 'ponlo.paired';
   var role = null, code = '', chanId = '', keyP = null, sb = null, ch = null, subscribed = false, linked = false;
-  var sending = false, pend = null, getState = null, lastAck = 0, beat = null, pairFns = [];
+  var sending = false, pend = null, getState = null, lastAck = 0, lastHello = 0, beat = null, pairFns = [], byeFns = [];
   var enc = function (s) { return new TextEncoder().encode(s); };
 
   function hex(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return (b < 16 ? '0' : '') + b.toString(16); }).join(''); }
@@ -57,6 +57,18 @@ var Room = (function () {
   }
   function cur() { return getState ? getState() : null; }
   function okState(s) { return !!(s && s.cfg && s.cfg.ver === DEFAULT_CONFIG.ver); }
+  /* La pantalla solo acepta un estado igual o más avanzado que el suyo: un celular nuevo y vacío no pisa el progreso. */
+  function fresher(s) { var c = cur(); return !c || s.rev >= c.rev; }
+  function drain() {
+    return new Promise(function (res) { var t = 0; (function chk() { if ((!sending && !pend) || t++ > 30) return res(); setTimeout(chk, 100); })(); });
+  }
+  function forget() {
+    clearInterval(beat); subscribed = false; linked = false;
+    try { if (sb && ch) sb.removeChannel(ch); } catch (e) {}
+    ch = null; code = '';
+    lsSet(LS_CODE, null); lsSet(LS_PAIRED, null);
+    Sync.ext('local');
+  }
 
   /* Controlador → pantalla: el último estado gana. */
   function pushState(st) {
@@ -78,7 +90,9 @@ var Room = (function () {
     unpack(m && m.payload).then(function (d) {
       if (!d) return;                                     // firma inválida: se ignora
       if (role === 'screen') {
-        if ((d.t === 'hello' || d.t === 'state') && okState(d.s)) Sync.external(d.s, 'room');
+        if (d.t === 'bye') { setLinked(false); return; }
+        if (d.t === 'hello' || d.t === 'state') lastHello = Date.now();
+        if ((d.t === 'hello' || d.t === 'state') && okState(d.s) && fresher(d.s)) Sync.external(d.s, 'room');
         if (d.t === 'hello') { setLinked(true); send('s2c', d.hb ? { t: 'ack', ts: Date.now() } : { t: 'ack', s: cur(), ts: Date.now() }); }
       } else {
         if (d.t === 'ack') {
@@ -89,6 +103,7 @@ var Room = (function () {
           if (first && cur()) pushState(cur());
         }
         if (d.t === 'req' && cur()) pushState(cur());
+        if (d.t === 'bye') { forget(); byeFns.forEach(function (f) { f(); }); }
       }
     });
   }
@@ -100,13 +115,14 @@ var Room = (function () {
   function startBeat() {
     clearInterval(beat);
     beat = setInterval(function () {
-      if (role !== 'control' || !subscribed) return;
+      if (!subscribed) return;
+      if (role === 'screen') { if (linked && Date.now() - lastHello > 35000) setLinked(false); return; }
       send('c2s', { t: 'hello', hb: 1, ts: Date.now() });
       if (linked && Date.now() - lastAck > 35000) setLinked(false);
     }, 10000);
   }
   function onSub(status) {
-    if (status === 'SUBSCRIBED') { subscribed = true; lastAck = Date.now(); setLinked(false); announce(); }
+    if (status === 'SUBSCRIBED') { subscribed = true; lastAck = Date.now(); lastHello = Date.now(); setLinked(false); announce(); }
     else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT' || status === 'CLOSED') { subscribed = false; setLinked(false); }
   }
   function connect() {
@@ -134,8 +150,23 @@ var Room = (function () {
     onPaired: function (f) { pairFns.push(f); },
     isLinked: function () { return linked; },
     start: function (r, c) { role = r; code = c; return derive(c).then(connect); },
-    /* Pantalla: genera otro código (invalida al celular anterior). */
-    newCode: function () { var c = gen(); lsSet(LS_CODE, c); lsSet(LS_PAIRED, null); code = c; return derive(c).then(connect); },
+    /* Pantalla: genera otro código (avisa al celular anterior y lo invalida). El progreso se conserva. */
+    newCode: function () {
+      var p = (ch && subscribed) ? Room.bye() : Promise.resolve();
+      return p.then(function () { var c = gen(); lsSet(LS_CODE, c); lsSet(LS_PAIRED, null); code = c; return derive(c).then(connect); });
+    },
+    /* Avisa al otro dispositivo que este se desvincula (espera a que salga el último estado pendiente). */
+    bye: function () { return drain().then(function () { return send(role === 'screen' ? 's2c' : 'c2s', { t: 'bye', ts: Date.now() }); }); },
+    /* Olvida la sala en este dispositivo. No toca el progreso guardado. */
+    leave: forget,
+    onBye: function (f) { byeFns.push(f); },
+    /* Pantalla: borra el progreso. El celular conectado recibe un estado en blanco con "rev" mayor; uno desconectado lo recibirá al emparejar. */
+    wipe: function () {
+      var c = cur(), f = freshState(c ? c.cfg : loadConfig());
+      f.rev = (c ? c.rev : 0) + 1; f.at = nowMs(); f.hist = [];
+      try { localStorage.setItem(STORE_STATE, JSON.stringify(f)); } catch (e) {}
+      return send('s2c', { t: 'ack', s: f, ts: Date.now() });
+    },
     publish: function (st) { if (role === 'control' && ch) pushState(st); }
   };
 })();

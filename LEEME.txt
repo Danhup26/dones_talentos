@@ -74,7 +74,8 @@ BASE BÍBLICA DEL JUEGO (Reina-Valera 1960)
   Se usan los que se pueden vivir en una actividad sencilla y reverente. Los demás (sanidades, milagros, lenguas,
   interpretación, discernimiento de espíritus) no se "actúan" en un juego y se dejan fuera de las actividades.
 - TALENTOS (Mateo 25:14-30): lo que cada uno puede hacer y pone al servicio. En cada ronda el DON es el tema y el TALENTO la forma:
-  Equipo 1 = DECIR (una frase) · Equipo 2 = HACER (gesto o escena) · Equipo 3 = DIBUJAR (cartulina). Siempre igual: nadie se confunde.
+  Equipo 1 = DECIR (una frase) · Equipo 2 = HACER (gesto o escena) · Equipo 3 = ESCRIBIR (una palabra o frase en una hoja y leerla).
+  No se dibuja a Dios. Siempre igual: nadie se confunde. Material: una hoja y un lapicero por equipo.
 - Las piezas no se "ganan": cada equipo las recibe y cada misión las pone en acción. Nadie compite: todas hacen falta.
 - 6 rondas, de menor a mayor: 1 Temor de Jehová · 2 Fe · 3 Conocimiento · 4 Poder · 5 Consejo · 6 Sabiduría.
   Cada ronda muestra su don, un talento destacado, la base bíblica y un versículo. Todo se edita en Control → Actividades.

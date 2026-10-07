@@ -8,7 +8,7 @@
      Se eligen los que se pueden vivir en una actividad sencilla. Las rondas, de menor a mayor:
      Temor de Jehová · Fe · Conocimiento · Poder · Consejo · Sabiduría.
    · TALENTOS: lo que cada uno puede hacer y pone al servicio (Mt 25:14-30). En cada ronda, el DON es el tema
-     y el TALENTO es la forma de expresarlo: Decir (equipo 1), Hacer (equipo 2), Dibujar (equipo 3).
+     y el TALENTO es la forma de expresarlo: Decir (equipo 1), Hacer (equipo 2), Escribir (equipo 3). No se dibuja a Dios.
    · Las piezas no se "ganan": cada equipo las recibe y cada misión las PONE EN ACCIÓN.
    ===================================================================== */
 var DEFAULT_CONFIG = {
@@ -29,35 +29,35 @@ var DEFAULT_CONFIG = {
     { name: "PROPÓSITO", color: "#B9A3FF" }
   ],
 
-  /* Tipos (disc): decir, hacer, dibujar (los talentos de cada equipo) + otros para actividades propias */
+  /* Tipos (disc): decir, hacer, escribir (los talentos de cada equipo) + colectivo y lsc para actividades propias */
   challenges: [
     /* Ronda 1 · Temor de Jehová */
-    { id: "c1",  title: "Dios es grande",         disc: "decir",   secs: 20, text: "Digan juntos, en una frase: «Dios es grande porque…»." },
-    { id: "c2",  title: "Reverencia",             disc: "hacer",   secs: 25, text: "Tomen una postura de reverencia ante Dios y quédense quietos 10 segundos." },
-    { id: "c3",  title: "Su grandeza",            disc: "dibujar", secs: 30, text: "Dibujen en la cartulina algo que muestre lo grande que es Dios." },
+    { id: "c1", title: "Dios es grande",        disc: "decir",  secs: 20, text: "Digan juntos: «Dios es grande porque…» y completen la frase." },
+    { id: "c2", title: "Reverencia",            disc: "hacer",  secs: 25, text: "Tomen una postura de reverencia y quédense quietos 10 segundos." },
+    { id: "c3", title: "Una palabra",           disc: "escribir", secs: 30, text: "Escriban en una hoja una palabra que diga cómo es Dios y léanla en voz alta." },
     /* Ronda 2 · Fe */
-    { id: "c4",  title: "Dios respondió",         disc: "decir",   secs: 20, text: "Cuenten en una frase algo que le pidieron a Dios y Él respondió." },
-    { id: "c5",  title: "Un paso de fe",          disc: "hacer",   secs: 25, text: "Representen a alguien que da un paso confiando en Dios, aunque no ve el camino." },
-    { id: "c6",  title: "El camino",              disc: "dibujar", secs: 30, text: "Dibujen un camino que solo se ve hasta el siguiente paso, con Dios guiando." },
+    { id: "c4", title: "Dios respondió",        disc: "decir",  secs: 20, text: "Cuenten en una frase algo que le pidieron a Dios y Él respondió." },
+    { id: "c5", title: "Un paso de fe",         disc: "hacer",  secs: 25, text: "Den juntos un paso al frente, como quien confía en Dios aunque no ve el camino." },
+    { id: "c6", title: "Mi confianza",          disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Confío en Dios porque…» y léanla." },
     /* Ronda 3 · Conocimiento */
-    { id: "c7",  title: "Su mano",                disc: "decir",   secs: 20, text: "Nombren tres cosas a su alrededor en las que ven la mano de Dios." },
-    { id: "c8",  title: "Fotografía",             disc: "hacer",   secs: 25, text: "Congélense como una foto de algo que Dios creó. Quietos al terminar el tiempo." },
-    { id: "c9",  title: "Su obra",                disc: "dibujar", secs: 30, text: "Dibujen algo creado por Dios que les hable de Él." },
+    { id: "c7", title: "Su mano",               disc: "decir",  secs: 20, text: "Nombren tres cosas a su alrededor en las que ven la mano de Dios." },
+    { id: "c8", title: "Fotografía",            disc: "hacer",  secs: 25, text: "Congélense como una foto de algo que Dios creó: un árbol, el mar, una montaña." },
+    { id: "c9", title: "Gracias por…",          disc: "escribir", secs: 30, text: "Escriban tres cosas que Dios creó y por las que le dan gracias." },
     /* Ronda 4 · Poder */
-    { id: "c10", title: "Grito de ánimo",         disc: "decir",   secs: 20, text: "Inventen un grito de ánimo de cinco palabras y díganlo juntos." },
-    { id: "c11", title: "Cadena firme",           disc: "hacer",   secs: 25, text: "Formen una cadena tomados de las manos y no se suelten durante 15 segundos." },
-    { id: "c12", title: "Fuerzas de Dios",        disc: "dibujar", secs: 30, text: "Dibujen a alguien cargando algo pesado y a Dios dándole fuerzas." },
+    { id: "c10", title: "Grito de ánimo",        disc: "decir",  secs: 20, text: "Inventen un grito de ánimo de cinco palabras y díganlo juntos." },
+    { id: "c11", title: "Cadena firme",          disc: "hacer",  secs: 25, text: "Formen una cadena tomados de las manos y no se suelten durante 15 segundos." },
+    { id: "c12", title: "Fuerzas",               disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Dios me da fuerzas para…» y léanla." },
     /* Ronda 5 · Consejo */
-    { id: "c13", title: "Un buen consejo",        disc: "decir",   secs: 20, text: "Piensen en alguien que debe tomar una decisión importante y díganle un consejo en una frase." },
-    { id: "c14", title: "Pedir consejo",          disc: "hacer",   secs: 25, text: "Representen a alguien que pide consejo y recibe una respuesta sabia." },
-    { id: "c15", title: "Dios señala el camino",  disc: "dibujar", secs: 30, text: "Dibujen un camino con una mano que señala por dónde ir." },
+    { id: "c13", title: "Un buen consejo",       disc: "decir",  secs: 20, text: "Piensen en alguien que debe tomar una decisión y díganle un consejo en una frase." },
+    { id: "c14", title: "Pedir consejo",         disc: "hacer",  secs: 25, text: "Representen a alguien que pide consejo y recibe una respuesta sabia." },
+    { id: "c15", title: "Mi consejo",            disc: "escribir", secs: 30, text: "Escriban un consejo corto, basado en la Biblia, para un joven que debe decidir algo." },
     /* Ronda 6 · Sabiduría */
-    { id: "c16", title: "Sabiduría de Dios",      disc: "decir",   secs: 20, text: "Completen en una frase: «La sabiduría de Dios me enseña a…»." },
-    { id: "c17", title: "Pedir sabiduría",        disc: "hacer",   secs: 25, text: "Representen a alguien que, antes de decidir, le pide sabiduría a Dios." },
-    { id: "c18", title: "Luz que guía",           disc: "dibujar", secs: 30, text: "Dibujen una luz que guía a una persona en una decisión." }
+    { id: "c16", title: "Sabiduría de Dios",     disc: "decir",  secs: 20, text: "Completen en una frase: «La sabiduría de Dios me enseña a…»." },
+    { id: "c17", title: "Pedir sabiduría",       disc: "hacer",  secs: 25, text: "Representen a alguien que, antes de decidir, le pide sabiduría a Dios." },
+    { id: "c18", title: "Una petición",          disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Señor, dame sabiduría para…» y léanla." }
   ],
 
-  /* Una ronda da una pieza a cada equipo. picks = [equipo 1 (decir), equipo 2 (hacer), equipo 3 (dibujar)].
+  /* Una ronda da una pieza a cada equipo. picks = [equipo 1 (decir), equipo 2 (hacer), equipo 3 (escribir)].
      title = el don · talent = talento destacado · src = base bíblica · verse = clave del versículo (abajo). */
   plan: [
     { title: "Don de temor de Jehová", talent: "Reverencia",              src: "Isaías 11:2-3 · Proverbios 9:10",              picks: ["c1",  "c2",  "c3"],  verse: "temor" },
@@ -122,18 +122,11 @@ var DEFAULT_CONFIG = {
 };
 
 var DISCIPLINES = {
-  decir:       { label: "Talento · Decir",       icon: "pen" },
+  decir:       { label: "Talento · Decir",       icon: "volume" },
   hacer:       { label: "Talento · Hacer",       icon: "mask" },
-  dibujar:     { label: "Talento · Dibujar",     icon: "palette" },
-  recibir:     { label: "Gracia · Recibir",      icon: "book" },
-  don:         { label: "Don · Edificar",        icon: "users" },
-  amor:        { label: "Amor · Un cuerpo",      icon: "users" },
-  escenico:    { label: "Talento · Escénico",    icon: "mask" },
-  plastico:    { label: "Talento · Plástico",    icon: "palette" },
-  literario:   { label: "Talento · Literario",   icon: "pen" },
-  lsc:         { label: "Expresión · LSC",       icon: "hand" },
-  audiovisual: { label: "Talento · Audiovisual", icon: "camera" },
-  colectivo:   { label: "Colectivo",             icon: "users" }
+  escribir:    { label: "Talento · Escribir",    icon: "pen" },
+  colectivo:   { label: "Colectivo",             icon: "users" },
+  lsc:         { label: "Expresión · LSC",       icon: "hand" }
 };
 
 /* Logos: reemplaza los archivos en /assets (o cambia estas rutas). */

@@ -1,0 +1,7 @@
+estado-en-vivo.json
+.vercel
+.claude
+node_modules
+.env
+.env.*
+*.local

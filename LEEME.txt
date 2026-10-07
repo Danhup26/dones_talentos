@@ -1,0 +1,77 @@
+DONES Y TALENTOS — "Muchos dones. Muchas funciones. Un mismo propósito."
+Una producción del Comité de Artística — Arte Audiovisual, en colaboración con el Comité de Jóvenes
+IPUC La Paz · Apartadó
+
+OPCIÓN 1 (con internet): CONEXIÓN POR CÓDIGO O QR — sin instalar nada
+1. En el computador del proyector abre el enlace publicado y elige PANTALLA (F = pantalla completa).
+   Aparece una ventana con un CÓDIGO (por ejemplo 946Z-D7MA-PHD8) y un QR.
+2. En el celular del presentador: escanea el QR con la cámara (entra directo como Control)
+   o abre el mismo enlace, elige CONTROL, toca "Pegar" (o escribe) el código y "Conectar".
+3. La pantalla dice "Presentador conectado ✓" y oculta el QR para que nadie del público lo escanee.
+   Tecla P en la pantalla: volver a mostrarlo. "Nuevo código": invalida el celular anterior.
+- Si se recarga la pantalla o el celular, se reconectan solos (no vuelven a pedir el código).
+- Si el internet se cae un momento, la pantalla sigue en la escena en la que estaba y el cronómetro sigue corriendo.
+- La conexión usa Supabase (proyecto "dones-y-talentos-sala"); no guarda datos, solo reenvía mensajes firmados.
+  Los proyectos gratuitos de Supabase se pausan si pasan varios días sin uso: entra al panel unos días antes del culto
+  y confirma que dice "Active"; y haz un ensayo con el código y el QR.
+
+OPCIÓN 2 (sin internet, respaldo): SERVIDOR EN EL COMPUTADOR
+Cómo se usa: presentador en el celular, todo en la pantalla (sin internet)
+Requisito: Node.js instalado en el computador del proyector (gratis, https://nodejs.org, versión LTS).
+1. Conecta el computador y el celular a la misma red WiFi (o el celular al hotspot del computador).
+2. En el computador, doble clic en INICIAR.bat. Se abre el juego y la ventana negra muestra
+   la dirección del celular (por ejemplo http://192.168.1.86:3000). No la cierres durante el culto.
+3. En el computador elige PANTALLA y arrastra la ventana al proyector (F = pantalla completa).
+4. En el celular abre la dirección que mostró la ventana negra y elige CONTROL.
+5. Todo lo que toques en el celular aparece en la pantalla en tiempo real.
+   El cronómetro usa el mismo reloj en ambos aparatos.
+Opcional: PIN para que nadie más pueda controlar:  node servidor.js 3000 4821
+
+OTRAS FORMAS (respaldo)
+- Publicado como Artifact de claude.ai: abre el mismo enlace en ambos aparatos (misma cuenta).
+- Un solo computador sin servidor: abre index.html en dos ventanas (PANTALLA y CONTROL).
+
+SECUENCIA PROTEGIDA (el celular solo muestra lo que sirve en cada escena)
+- En "En vivo" aparece el botón grande "Siguiente" y, según la escena: el cronómetro (solo en Cronómetro), las misiones
+  (solo en Cronómetro y Misiones) o la ruleta (solo en Ruleta). Lo demás aparece gris: "Se activa en…".
+- "Siguiente" y "Anterior" ignoran el doble toque accidental.
+- Para corregir algo (ir a otra ronda, cambiar un reto, sumar o quitar piezas, saltar de escena, reiniciar):
+  mantén presionado 1,5 s "Corrección de emergencia". Se cierra sola al cambiar de escena.
+- Cuando el culto empieza ("Iniciar experiencia") se bloquea la edición de Equipos, Actividades y Ajustes. Para cambiar algo:
+  "Desbloquear edición" (pide confirmar). Se vuelve a bloquear al cambiar de escena y se libera al terminar el culto.
+
+RONDAS Y PIEZAS (Ajustes, antes de empezar)
+- Rondas: de 2 a 8. Piezas por misión: 1 o 2 (2 solo hasta 4 rondas). Total = 3 equipos × rondas × piezas (máximo 24).
+- Mientras corre el tiempo, la pantalla muestra la actividad completa de cada equipo junto al reloj.
+
+DURANTE EL CULTO
+- El botón grande "Siguiente" lleva el ritmo: Intro → Equipos → Retos → Cronómetro → Misiones → Progreso → siguiente ronda … → Gran final.
+- Marca cada equipo cuando cumpla su misión: así gana su pieza.
+- "VOLVER A ESTADO SEGURO" deja la pantalla en el título sin perder el progreso.
+- Si se recarga la pantalla o el celular, todo continúa donde iba (el servidor guarda el estado en estado-en-vivo.json;
+  para empezar de cero usa "Reiniciar todo" en el celular).
+
+EDITAR DESDE EL CELULAR
+- Control → Equipos: nombres y colores de los equipos.
+- Control → Actividades: plan de rondas y actividades (nombre, tipo, segundos, instrucción; agregar y eliminar).
+  Desde "En vivo" el botón "Editar «…»" abre la actividad de la ronda actual.
+- Control → Ajustes: rondas, puntos, sonido, modo accesible, textos, versículos, créditos, copia de seguridad.
+Los cambios se ven al instante en la pantalla.
+
+BASE BÍBLICA DEL JUEGO
+- DONES: los reparte el Espíritu como él quiere, para provecho común (1 Co 12:4-11; Ro 12:6-8; Ef 4:11-12; 1 P 4:10).
+- TALENTOS: el Señor los confía a cada uno conforme a su capacidad, para administrarlos y multiplicarlos (Mt 25:14-30).
+- Las piezas no se "ganan": cada equipo las recibe y cada misión las pone en acción. Nadie compite: todas hacen falta (1 Co 12:21).
+- PARTICIPACIÓN DE TODA LA IGLESIA (nadie compite):
+  · RULETA DEL CUERPO (Ojo, Mano, Oído, Boca, Pie, Corazón): sale sola después de las rondas 2 y 4. El presentador la gira
+    con el botón grande; todos hacen la acción a la vez, sentados (mirar y afirmar, bendecir, escuchar, animar, saludar, orar).
+    La ruleta no reparte dones: solo elige qué hace el cuerpo en ese momento. Acciones y versículos se editan en Ajustes.
+  · PAUSA DE SILENCIO: 60 segundos con una pregunta, antes del gran final (se cambia en Ajustes).
+  · MI PIEZA: al final, cada persona escribe en una ficha de papel "lo que Dios me dio" (una palabra o frase) y, si quiere,
+    la pega en un tablero con la silueta del cuerpo. Prepara fichas, lapiceros y cinta antes del culto; 2 o 3 voluntarios pueden compartir.
+- Rondas: 1 Todo viene de Dios · 2 Diversos dones · 3 Talentos: administrar · 4 Talentos: no enterrarlos · 5 Dones para servir · 6 Con amor, un solo cuerpo.
+- Cada ronda muestra su versículo (Reina-Valera 1960). Se cambia en Control → Actividades → Plan de rondas.
+- Si en el celular ya había contenido guardado de la versión anterior, se reemplaza automáticamente por este.
+
+ANTES DEL CULTO
+Usa DEMOSTRACIÓN en la portada para ver el recorrido completo (unos 5 minutos).

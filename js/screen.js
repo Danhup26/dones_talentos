@@ -235,8 +235,8 @@ var Screen = (function () {
         '<div class="fwords" id="fwords"></div></div>';
     }
     if (S.seg === 1) {
-      return '<div class="scene finale f1"><div class="layer" id="m1"><p class="stack"><span>LOS DONES LOS REPARTE EL ESPÍRITU.</span><span>LOS TALENTOS SE NOS CONFÍAN.</span><span>TODO VIENE DE DIOS.</span></p></div>' +
-        '<div class="layer" id="m2"><p class="stack gold"><span>TODO ES PARA SERVIR</span><span>Y EDIFICAR A LOS OTROS</span><span>CON AMOR.</span></p></div>' +
+      return '<div class="scene finale f1"><div class="layer" id="m1"><p class="stack"><span>EL DON LO DA EL ESPÍRITU.</span><span>EL TALENTO SE CULTIVA.</span><span>EL MINISTERIO ES SERVIR.</span></p></div>' +
+        '<div class="layer" id="m2"><p class="stack gold"><span>MINISTRAR ES</span><span>PONER EN ACCIÓN EL DON</span><span>QUE DIOS NOS DIO.</span></p></div>' +
         '<div class="layer" id="m3"><p class="scripture">“' + esc((c.verses.servir || c.verses.main).text) + '”</p><p class="ref">' + esc((c.verses.servir || c.verses.main).ref) + '</p></div></div>';
     }
     if (S.seg === 2) {

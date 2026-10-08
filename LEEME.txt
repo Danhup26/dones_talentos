@@ -69,23 +69,27 @@ EDITAR DESDE EL CELULAR
 - Control → Ajustes: rondas, puntos, sonido, modo accesible, textos, versículos, créditos, copia de seguridad.
 Los cambios se ven al instante en la pantalla.
 
-BASE BÍBLICA DEL JUEGO (Reina-Valera 1960)
-- DONES: el Espíritu de Jehová que reposa sobre el Mesías (Isaías 11:2-3) y los dones de 1 Corintios 12:8-10.
-  Se usan los que se pueden vivir en una actividad sencilla y reverente. Los demás (sanidades, milagros, lenguas,
-  interpretación, discernimiento de espíritus) no se "actúan" en un juego y se dejan fuera de las actividades.
-- TALENTOS (Mateo 25:14-30): lo que cada uno puede hacer y pone al servicio. En cada ronda el DON es el tema y el TALENTO la forma:
-  Equipo 1 = DECIR (una frase) · Equipo 2 = HACER (gesto o escena) · Equipo 3 = ESCRIBIR (una palabra o frase en una hoja y leerla).
+BASE DOCTRINAL DEL JUEGO (módulo "Música y Ministerio", ESCAM · FECP, y Biblia Reina-Valera 1960)
+- TALENTO: capacidad que se desarrolla con estudio, práctica y entorno. Es el MEDIO con el que se sirve.
+- DON: capacidad que da el Espíritu Santo por gracia; no se compra ni se aprende (1 Co 12:4, 7, 11).
+  Grupos: ministeriales (Ef 4:11), espirituales (1 Co 12:8-10) y de servicio (Ro 12:6-8).
+- MINISTERIO: servicio al Señor. MINISTRAR = poner en acción el don que Dios nos ha dado (1 P 4:10).
+- En cada ronda el DON es el tema y el TALENTO la forma de expresarlo:
+  Equipo 1 = DECIR (una frase) · Equipo 2 = HACER (un gesto) · Equipo 3 = ESCRIBIR (una frase en una hoja y leerla).
   No se dibuja a Dios. Siempre igual: nadie se confunde. Material: una hoja y un lapicero por equipo.
 - Las piezas no se "ganan": cada equipo las recibe y cada misión las pone en acción. Nadie compite: todas hacen falta.
-- 6 rondas, de menor a mayor: 1 Temor de Jehová · 2 Fe · 3 Conocimiento · 4 Poder · 5 Consejo · 6 Sabiduría.
-  Cada ronda muestra su don, un talento destacado, la base bíblica y un versículo. Todo se edita en Control → Actividades.
+- 6 rondas con dones del documento: 1 Fe (don espiritual, 1 Co 12:9) · 2 Palabra de sabiduría (don espiritual, 1 Co 12:8) ·
+  3 Servicio · 4 Enseñanza · 5 Exhortación · 6 Misericordia (dones de servicio, Ro 12:7-8).
+  Cada ronda muestra su don, el talento destacado, el grupo y la base bíblica, y un versículo. Todo se edita en Control → Actividades.
+- Los dones que no se ejercen en un juego (sanidades, milagros, lenguas, interpretación, discernimiento) no se usan en las actividades.
+- Mensaje final: "El don lo da el Espíritu. El talento se cultiva. El ministerio es servir." y "Ministrar es poner en acción el don que Dios nos dio".
 - PARTICIPACIÓN DE TODA LA IGLESIA (nadie compite):
   · RULETA DEL CUERPO (Ojo, Mano, Oído, Boca, Pie, Corazón): sale una vez, después de la ronda 3. El presentador la gira
     con el botón grande; todos hacen la acción a la vez, sentados. La ruleta no reparte dones: solo elige qué hace el cuerpo.
   · PAUSA DE SILENCIO: 45 segundos con una pregunta, antes del gran final.
   · MI PIEZA: al final, cada persona escribe en una ficha de papel "lo que Dios me dio" (una palabra o frase) y, si quiere,
     la pega en un tablero con la silueta del cuerpo. Prepara fichas, lapiceros y cinta; 2 o 3 voluntarios pueden compartir.
-- DURACIÓN (estimada, sin medir; ensáyalo con cronómetro): unos 18 a 19 minutos. Si se pasa de 20, baja a 5 rondas.
+- DURACIÓN (estimada, sin medir; ensáyalo con cronómetro): unos 17 a 19 minutos. Si se pasa de 20, baja a 5 rondas.
 - Los textos bíblicos están comprobados en la RVR1960; los que terminan en "…" son citas parciales del versículo.
   Créditos: Reina-Valera 1960 © Sociedades Bíblicas en América Latina.
 - Si en el celular o la pantalla había contenido guardado de una versión anterior, se reemplaza automáticamente por este.

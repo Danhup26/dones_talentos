@@ -3,16 +3,18 @@
    Todo esto también se edita desde el celular (Control → Equipos / Actividades / Ajustes).
    Lo editado allí se guarda y tiene prioridad sobre este archivo.
 
-   Base bíblica (Reina-Valera 1960):
-   · DONES: el Espíritu de Jehová que reposa sobre el Mesías (Is 11:2-3) y los dones de 1 Co 12:8-10.
-     Se eligen los que se pueden vivir en una actividad sencilla. Las rondas, de menor a mayor:
-     Temor de Jehová · Fe · Conocimiento · Poder · Consejo · Sabiduría.
-   · TALENTOS: lo que cada uno puede hacer y pone al servicio (Mt 25:14-30). En cada ronda, el DON es el tema
-     y el TALENTO es la forma de expresarlo: Decir (equipo 1), Hacer (equipo 2), Escribir (equipo 3). No se dibuja a Dios.
-   · Las piezas no se "ganan": cada equipo las recibe y cada misión las PONE EN ACCIÓN.
+   Base doctrinal (módulo "Música y Ministerio", ESCAM · FECP; Biblia Reina-Valera 1960):
+   · TALENTO: conjunto de capacidades (artísticas, intelectuales…) que se DESARROLLAN con estudio, práctica y entorno.
+     Es el MEDIO con el que se sirve.
+   · DON: capacidad que DA el Espíritu Santo por gracia (charis); no se compra ni se aprende (1 Co 12:4, 7, 11).
+     Grupos: ministeriales (Ef 4:11), espirituales (1 Co 12:8-10) y de servicio (Ro 12:6-8).
+   · MINISTERIO: servicio al Señor. MINISTRAR = poner en acción el don que Dios nos ha dado (1 P 4:10).
+   Las rondas usan dones de 1 Co 12 y Ro 12 que se pueden vivir en una actividad sencilla. En cada ronda el DON es
+   el tema y el TALENTO es la forma de expresarlo: Decir (equipo 1), Hacer (equipo 2), Escribir (equipo 3).
+   Las piezas no se "ganan": cada equipo las recibe y cada misión las PONE EN ACCIÓN.
    ===================================================================== */
 var DEFAULT_CONFIG = {
-  ver: 4,                  // súbelo si cambias la estructura: reemplaza lo guardado en los aparatos
+  ver: 5,                  // súbelo si cambias la estructura: reemplaza lo guardado en los aparatos
   church: "IPUC La Paz · Apartadó",
   title: "DONES Y TALENTOS",
   subtitle: "Muchos dones. Muchas funciones. Un mismo propósito.",
@@ -29,57 +31,56 @@ var DEFAULT_CONFIG = {
     { name: "PROPÓSITO", color: "#B9A3FF" }
   ],
 
-  /* Tipos (disc): decir, hacer, escribir (los talentos de cada equipo) + colectivo y lsc para actividades propias */
+  /* Tipos (disc): decir, hacer, escribir (los talentos de cada equipo) + colectivo y lsc para actividades propias.
+     Tiempos cortos: decir 20 s · hacer 20 s · escribir 25 s (la ronda dura lo del reto más largo). */
   challenges: [
-    /* Ronda 1 · Temor de Jehová */
-    { id: "c1", title: "Dios es grande",        disc: "decir",  secs: 20, text: "Digan juntos: «Dios es grande porque…» y completen la frase." },
-    { id: "c2", title: "Reverencia",            disc: "hacer",  secs: 25, text: "Tomen una postura de reverencia y quédense quietos 10 segundos." },
-    { id: "c3", title: "Una palabra",           disc: "escribir", secs: 30, text: "Escriban en una hoja una palabra que diga cómo es Dios y léanla en voz alta." },
-    /* Ronda 2 · Fe */
-    { id: "c4", title: "Dios respondió",        disc: "decir",  secs: 20, text: "Cuenten en una frase algo que le pidieron a Dios y Él respondió." },
-    { id: "c5", title: "Un paso de fe",         disc: "hacer",  secs: 25, text: "Den juntos un paso al frente, como quien confía en Dios aunque no ve el camino." },
-    { id: "c6", title: "Mi confianza",          disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Confío en Dios porque…» y léanla." },
-    /* Ronda 3 · Conocimiento */
-    { id: "c7", title: "Su mano",               disc: "decir",  secs: 20, text: "Nombren tres cosas a su alrededor en las que ven la mano de Dios." },
-    { id: "c8", title: "Fotografía",            disc: "hacer",  secs: 25, text: "Congélense como una foto de algo que Dios creó: un árbol, el mar, una montaña." },
-    { id: "c9", title: "Gracias por…",          disc: "escribir", secs: 30, text: "Escriban tres cosas que Dios creó y por las que le dan gracias." },
-    /* Ronda 4 · Poder */
-    { id: "c10", title: "Grito de ánimo",        disc: "decir",  secs: 20, text: "Inventen un grito de ánimo de cinco palabras y díganlo juntos." },
-    { id: "c11", title: "Cadena firme",          disc: "hacer",  secs: 25, text: "Formen una cadena tomados de las manos y no se suelten durante 15 segundos." },
-    { id: "c12", title: "Fuerzas",               disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Dios me da fuerzas para…» y léanla." },
-    /* Ronda 5 · Consejo */
-    { id: "c13", title: "Un buen consejo",       disc: "decir",  secs: 20, text: "Piensen en alguien que debe tomar una decisión y díganle un consejo en una frase." },
-    { id: "c14", title: "Pedir consejo",         disc: "hacer",  secs: 25, text: "Representen a alguien que pide consejo y recibe una respuesta sabia." },
-    { id: "c15", title: "Mi consejo",            disc: "escribir", secs: 30, text: "Escriban un consejo corto, basado en la Biblia, para un joven que debe decidir algo." },
-    /* Ronda 6 · Sabiduría */
-    { id: "c16", title: "Sabiduría de Dios",     disc: "decir",  secs: 20, text: "Completen en una frase: «La sabiduría de Dios me enseña a…»." },
-    { id: "c17", title: "Pedir sabiduría",       disc: "hacer",  secs: 25, text: "Representen a alguien que, antes de decidir, le pide sabiduría a Dios." },
-    { id: "c18", title: "Una petición",          disc: "escribir", secs: 30, text: "Escriban una frase que empiece con «Señor, dame sabiduría para…» y léanla." }
+    /* Ronda 1 · Don de fe (1 Co 12:9) */
+    { id: "c1",  title: "Dios respondió",     disc: "decir",    secs: 20, text: "Cuenten en una frase algo que le pidieron a Dios y Él respondió." },
+    { id: "c2",  title: "Un paso de fe",      disc: "hacer",    secs: 20, text: "Den juntos un paso al frente, como quien confía en Dios aunque no ve el camino." },
+    { id: "c3",  title: "Mi confianza",       disc: "escribir", secs: 25, text: "Escriban «Confío en Dios porque…» y léanlo en voz alta." },
+    /* Ronda 2 · Don de palabra de sabiduría (1 Co 12:8) */
+    { id: "c4",  title: "Sabiduría de Dios",  disc: "decir",    secs: 20, text: "Completen en una frase: «La sabiduría de Dios me enseña a…»." },
+    { id: "c5",  title: "Pedir sabiduría",    disc: "hacer",    secs: 20, text: "Representen a alguien que se detiene, ora en silencio y luego decide." },
+    { id: "c6",  title: "Una petición",       disc: "escribir", secs: 25, text: "Escriban «Señor, dame sabiduría para…» y léanlo en voz alta." },
+    /* Ronda 3 · Don de servicio (Ro 12:7) */
+    { id: "c7",  title: "Servir esta semana", disc: "decir",    secs: 20, text: "Digan una forma sencilla de servir a alguien de la iglesia esta semana." },
+    { id: "c8",  title: "Una mano amiga",     disc: "hacer",    secs: 20, text: "Representen a alguien que ayuda a otra persona a cargar algo pesado." },
+    { id: "c9",  title: "Mi compromiso",      disc: "escribir", secs: 25, text: "Escriban a quién van a servir esta semana y cómo." },
+    /* Ronda 4 · Don de enseñanza (Ro 12:7) */
+    { id: "c10", title: "Un versículo",       disc: "decir",    secs: 20, text: "Elijan un versículo que conozcan y díganlo juntos." },
+    { id: "c11", title: "Enseñar un gesto",   disc: "hacer",    secs: 20, text: "Enseñen a los demás un gesto que signifique «Dios te ama»." },
+    { id: "c12", title: "Lo aprendido",       disc: "escribir", secs: 25, text: "Escriban algo que aprendieron de Dios y léanlo en voz alta." },
+    /* Ronda 5 · Don de exhortación (Ro 12:8) */
+    { id: "c13", title: "¡Tú puedes!",        disc: "decir",    secs: 20, text: "Díganle a otro equipo una frase de ánimo." },
+    { id: "c14", title: "Aplauso de ánimo",   disc: "hacer",    secs: 20, text: "Aplaudan juntos para animar a otro equipo." },
+    { id: "c15", title: "Mensaje de ánimo",   disc: "escribir", secs: 25, text: "Escriban un mensaje de ánimo de una línea para alguien de la iglesia y léanlo." },
+    /* Ronda 6 · Don de misericordia (Ro 12:8) */
+    { id: "c16", title: "Con compasión",      disc: "decir",    secs: 20, text: "Digan en una frase cómo ayudarían a alguien que sufre." },
+    { id: "c17", title: "Mano que se extiende", disc: "hacer",  secs: 20, text: "Representen a alguien que extiende la mano a quien lo necesita." },
+    { id: "c18", title: "Una oración",        disc: "escribir", secs: 25, text: "Escriban una oración corta por alguien que sufre y léanla." }
   ],
 
   /* Una ronda da una pieza a cada equipo. picks = [equipo 1 (decir), equipo 2 (hacer), equipo 3 (escribir)].
-     title = el don · talent = talento destacado · src = base bíblica · verse = clave del versículo (abajo). */
+     title = el don · talent = talento destacado (el medio) · src = grupo y base bíblica · verse = clave del versículo. */
   plan: [
-    { title: "Don de temor de Jehová", talent: "Reverencia",              src: "Isaías 11:2-3 · Proverbios 9:10",              picks: ["c1",  "c2",  "c3"],  verse: "temor" },
-    { title: "Don de fe",              talent: "Dar testimonio",          src: "1 Corintios 12:9 · Hebreos 11:1",              picks: ["c4",  "c5",  "c6"],  verse: "fe" },
-    { title: "Don de conocimiento",    talent: "Observar",                src: "Isaías 11:2 · 1 Corintios 12:8 · Salmo 19:1",  picks: ["c7",  "c8",  "c9"],  verse: "conocimiento" },
-    { title: "Don de poder",           talent: "Perseverar y animar",     src: "Isaías 11:2 · Hechos 1:8",                     picks: ["c10", "c11", "c12"], verse: "poder" },
-    { title: "Don de consejo",         talent: "Escuchar y orientar",     src: "Isaías 11:2 · Salmo 32:8",                     picks: ["c13", "c14", "c15"], verse: "consejo" },
-    { title: "Don de sabiduría",       talent: "Compartir lo aprendido",  src: "Isaías 11:2 · 1 Corintios 12:8 · Santiago 1:5", picks: ["c16", "c17", "c18"], verse: "sabiduria" }
+    { title: "Don de fe",                  talent: "Dar testimonio",       src: "Don espiritual · 1 Corintios 12:9",  picks: ["c1",  "c2",  "c3"],  verse: "fe" },
+    { title: "Don de palabra de sabiduría", talent: "Hablar con prudencia", src: "Don espiritual · 1 Corintios 12:8",  picks: ["c4",  "c5",  "c6"],  verse: "sabiduria" },
+    { title: "Don de servicio",            talent: "Ayudar con las manos", src: "Don de servicio · Romanos 12:7",     picks: ["c7",  "c8",  "c9"],  verse: "servicio" },
+    { title: "Don de enseñanza",           talent: "Explicar con claridad", src: "Don de servicio · Romanos 12:7",    picks: ["c10", "c11", "c12"], verse: "ensenanza" },
+    { title: "Don de exhortación",         talent: "Animar con palabras",  src: "Don de servicio · Romanos 12:8",     picks: ["c13", "c14", "c15"], verse: "exhortacion" },
+    { title: "Don de misericordia",        talent: "Gestos de compasión",  src: "Don de servicio · Romanos 12:8",     picks: ["c16", "c17", "c18"], verse: "misericordia" }
   ],
 
   /* Reina-Valera 1960 (textos comprobados; los que terminan en «…» son citas parciales del versículo). */
   verses: {
     main:         { ref: "1 Corintios 12:4",    text: "Ahora bien, hay diversidad de dones, pero el Espíritu es el mismo." },
-    isaias:       { ref: "Isaías 11:2",         text: "Y reposará sobre él el Espíritu de Jehová; espíritu de sabiduría y de inteligencia, espíritu de consejo y de poder, espíritu de conocimiento y de temor de Jehová." },
-    corintios:    { ref: "1 Corintios 12:8-9",  text: "Porque a este es dada por el Espíritu palabra de sabiduría; a otro, palabra de ciencia según el mismo Espíritu; a otro, fe por el mismo Espíritu;" },
-    temor:        { ref: "Proverbios 9:10",     text: "El temor de Jehová es el principio de la sabiduría, y el conocimiento del Santísimo es la inteligencia." },
+    provecho:     { ref: "1 Corintios 12:7",    text: "Pero a cada uno le es dada la manifestación del Espíritu para provecho." },
     fe:           { ref: "Hebreos 11:1",        text: "Es, pues, la fe la certeza de lo que se espera, la convicción de lo que no se ve." },
-    conocimiento: { ref: "Salmo 19:1",          text: "Los cielos cuentan la gloria de Dios, y el firmamento anuncia la obra de sus manos." },
-    poder:        { ref: "Hechos 1:8",          text: "…recibiréis poder, cuando haya venido sobre vosotros el Espíritu Santo…" },
-    consejo:      { ref: "Salmo 32:8",          text: "Te haré entender, y te enseñaré el camino en que debes andar; sobre ti fijaré mis ojos." },
-    sabiduria:    { ref: "Santiago 1:5",        text: "Y si alguno de vosotros tiene falta de sabiduría, pídala a Dios, el cual da a todos abundantemente y sin reproche…" },
-    talentos:     { ref: "Mateo 25:15",         text: "A uno dio cinco talentos, y a otro dos, y a otro uno, a cada uno conforme a su capacidad; y luego se fue lejos." },
+    sabiduria:    { ref: "1 Corintios 12:8",    text: "Porque a este es dada por el Espíritu palabra de sabiduría…" },
+    servicio:     { ref: "1 Pedro 4:10",        text: "Cada uno según el don que ha recibido, minístrelo a los otros, como buenos administradores de la multiforme gracia de Dios." },
+    ensenanza:    { ref: "Romanos 12:7",        text: "…o si de servicio, en servir; o el que enseña, en la enseñanza;" },
+    exhortacion:  { ref: "1 Tesalonicenses 5:11", text: "Por lo cual, animaos unos a otros, y edificaos unos a otros, así como lo hacéis." },
+    misericordia: { ref: "Lucas 6:36",          text: "Sed, pues, misericordiosos, como también vuestro Padre es misericordioso." },
     servir:       { ref: "1 Pedro 4:10",        text: "Cada uno según el don que ha recibido, minístrelo a los otros, como buenos administradores de la multiforme gracia de Dios." },
     final:        { ref: "Mateo 25:21",         text: "Y su señor le dijo: Bien, buen siervo y fiel; sobre poco has sido fiel, sobre mucho te pondré; entra en el gozo de tu señor." },
     body:         { ref: "Romanos 12:4-5",      text: "Porque de la manera que en un cuerpo tenemos muchos miembros, pero no todos los miembros tienen la misma función, así nosotros, siendo muchos, somos un cuerpo en Cristo, y todos miembros los unos de los otros." },
@@ -103,7 +104,7 @@ var DEFAULT_CONFIG = {
   /* Pausa de silencio antes del final */
   pause: {
     title: "Un momento de silencio",
-    question: "¿Qué te ha dado Dios que todavía no has puesto en acción?",
+    question: "¿Qué don te ha dado Dios, y qué talento vas a cultivar para ponerlo al servicio?",
     secs: 45,
     verse: { ref: "Salmos 46:10", text: "Estad quietos, y conoced que yo soy Dios; seré exaltado entre las naciones; enaltecido seré en la tierra." }
   },
